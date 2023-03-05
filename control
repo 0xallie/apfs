@@ -1,0 +1,9 @@
+Name: snaputil
+Package: snaputil
+Version: 12.3
+Architecture: iphoneos-arm
+Section: System
+Maintainer: Procursus Team <support@procurs.us>
+Depends: firmware (>= 10.3)
+Homepage: https://github.com/ahl/apfs/
+Description: APFS Snapshot Tool.

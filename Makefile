@@ -1,11 +1,14 @@
-#
-# Copyright 2017 Adam H. Leventhal. All Rights Reserved.
-#
- 
-all: snapUtil
+ARCHS = armv7 arm64
+TARGET := iphone:clang:latest:10.3
 
-snapUtil: snapUtil.c
-	clang -Wall -Os -g -o snapUtil snapUtil.c -framework CoreFoundation -framework IOKit
+include $(THEOS)/makefiles/common.mk
 
-clean:
-	rm -f snapUtil
+TOOL_NAME = snaputil
+
+snaputil_FILES = snapUtil.c
+snaputil_CFLAGS = -fobjc-arc
+snaputil_CODESIGN_FLAGS = -Sentitlements.plist
+snaputil_INSTALL_PATH = /usr/bin
+snaputil_FRAMEWORKS = CoreFoundation IOKit
+
+include $(THEOS_MAKE_PATH)/tool.mk
